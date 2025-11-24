@@ -5,7 +5,7 @@ import com.austin.bookscomposedemo.data.Book
 /**
  * An enum representing a [Book]'s format.
  */
-enum class Type {
+enum class BookType {
     EBook,
     PhysicalBook,
     AudioBook
