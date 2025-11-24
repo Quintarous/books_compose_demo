@@ -14,9 +14,13 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.austin.bookscomposedemo.data.Book
+import com.austin.bookscomposedemo.ui.search.ROUTE_SEARCH_SCREEN
+import com.austin.bookscomposedemo.ui.search.SearchScreen
+import com.austin.bookscomposedemo.ui.search.SearchScreenState
 import com.austin.bookscomposedemo.ui.theme.BooksComposeDemoTheme
+import dagger.hilt.android.AndroidEntryPoint
 
-// TODO setup Hilt
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
