@@ -14,7 +14,7 @@ android {
 
     defaultConfig {
         applicationId = "com.austin.bookscomposedemo"
-        minSdk = 21
+        minSdk = 23
         targetSdk = 36
         versionCode = 1
         versionName = "1.0"
@@ -53,9 +53,11 @@ dependencies {
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
     implementation(libs.androidx.compose.navigation)
+    implementation(libs.gson)
     implementation(libs.hilt.android)
-    implementation(libs.androidx.compilercommon)
     ksp(libs.hilt.compiler)
+//    implementation(libs.androidx.compilercommon)
+//    implementation("com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava")
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

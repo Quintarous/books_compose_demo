@@ -5,14 +5,17 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Card
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.austin.bookscomposedemo.data.Book
 import com.austin.bookscomposedemo.data.BookDetails
 import com.austin.bookscomposedemo.data.GoodReadsRating
@@ -28,11 +31,16 @@ fun SearchScreen(
     state: SearchScreenState,
     modifier: Modifier = Modifier
 ) {
-    Column(modifier = modifier.fillMaxSize()) {
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = modifier.fillMaxSize()
+    ) {
         // TODO search bar goes on top here
 
         // Lazy column to display the full book list
-        BookList(books = state.books)
+        BookList(
+            books = state.books
+        )
     }
 }
 
@@ -41,7 +49,10 @@ fun BookList(
     books: List<Book>,
     modifier: Modifier = Modifier
 ) {
-    LazyColumn(modifier = modifier) {
+    LazyColumn(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = modifier.fillMaxSize()
+    ) {
         items(books) { book ->
             BookItem(book = book)
         }
@@ -53,8 +64,8 @@ fun BookItem(
     book: Book,
     modifier: Modifier = Modifier
 ) {
-    Card(modifier = modifier) {
-        Row {
+    Card(modifier = modifier.padding(4.dp)) {
+        Row(modifier = Modifier.padding(16.dp)) {
             val coverResourceId = Cover.getCoverByName(book.coverName)?.drawable
 
             // If the cover name maps to a Cover enum use it's cover drawable to load the cover
