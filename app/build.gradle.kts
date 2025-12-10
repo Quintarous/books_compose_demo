@@ -56,6 +56,7 @@ dependencies {
     implementation(libs.gson)
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
+    implementation(libs.androidx.compose.material.icons)
 //    implementation(libs.androidx.compilercommon)
 //    implementation("com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava")
     testImplementation(libs.junit)
