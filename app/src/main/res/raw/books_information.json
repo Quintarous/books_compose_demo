@@ -22,8 +22,8 @@
   {
     "id": "01967c8c-d787-72e3-9950-e7d62918246b",
     "name": "Tess of the d’Urbervilles",
-    "status": "active",
-    "type": "ebook",
+    "status": "inactive",
+    "type": "physical book",
     "supplier": "standardebooks",
     "details": {
       "authors": [
@@ -254,7 +254,7 @@
     "id": "0197c239-4419-7668-a989-44a5e8349a6e",
     "name": "Reina Valera New Testament of the Bible 1602, Book of Matthew",
     "status": "active",
-    "type": "ebook",
+    "type": "audiobook",
     "supplier": "standardebooks",
     "details": {
       "authors": [

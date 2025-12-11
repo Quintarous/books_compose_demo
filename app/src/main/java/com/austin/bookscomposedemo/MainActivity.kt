@@ -15,6 +15,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.austin.bookscomposedemo.data.Book
 import com.austin.bookscomposedemo.data.BookDetails
+import com.austin.bookscomposedemo.data.Chapter
 import com.austin.bookscomposedemo.data.GoodReadsRating
 import com.austin.bookscomposedemo.data.enums.BookType
 import com.austin.bookscomposedemo.data.enums.Status
@@ -22,7 +23,6 @@ import com.austin.bookscomposedemo.ui.search.ROUTE_SEARCH_SCREEN
 import com.austin.bookscomposedemo.ui.search.SearchScreen
 import com.austin.bookscomposedemo.ui.search.SearchScreenState
 import com.austin.bookscomposedemo.ui.theme.BooksComposeDemoTheme
-import java.util.Date
 
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -68,9 +68,9 @@ fun MainNavHost(
                     supplier = "supplier",
                     details = BookDetails(
                         authors = listOf("author"),
-                        goodReadsRating = GoodReadsRating(rating = 3.14, count = 3),
-                        chapters = listOf("chapter1", "chapter2", "chapter3"),
-                        publicationDate = Date()
+                        goodreadsRating = GoodReadsRating(rating = 3.14, count = 3),
+                        chapters = listOf(Chapter("Chapter 1")),
+                        publicationDate = "2022-01-08"
                     ),
                     coverName = "cover-isla-del-tesoro",
                     description = "description"

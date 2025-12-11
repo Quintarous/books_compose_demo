@@ -27,22 +27,27 @@ import com.austin.bookscomposedemo.data.GoodReadsRating
 import com.austin.bookscomposedemo.data.enums.BookType
 import com.austin.bookscomposedemo.data.enums.Cover
 import com.austin.bookscomposedemo.data.enums.Status
-import java.util.Date
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.outlined.StarHalf
 import androidx.compose.material.icons.outlined.Search
 import androidx.compose.material.icons.outlined.Star
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.TextField
+import com.austin.bookscomposedemo.data.Chapter
 import com.austin.bookscomposedemo.ui.theme.Yellow
 
 const val ROUTE_SEARCH_SCREEN = "search_screen"
+
+data class SearchScreenState(
+    val books: List<Book>
+)
 
 @Composable
 fun SearchScreen(
     state: SearchScreenState,
     modifier: Modifier = Modifier
 ) {
+    // TODO implement swipe to refresh
     LazyColumn(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = modifier.fillMaxSize().padding(vertical = 4.dp, horizontal = 8.dp)
@@ -109,16 +114,12 @@ fun BookItem(
                     }
                 }
 
-                val publicationDate: String = SimpleDateFormat.getDateInstance().format(
-                    book.details.publicationDate
-                )
-
                 Text("Name: ${book.name}", fontSize = 12.sp)
                 Text("Authors: $authorsString", fontSize = 12.sp)
                 Text("Description: ${book.description}", fontSize = 12.sp)
                 Text("Chapters: ${book.details.chapters.size}", fontSize = 12.sp)
-                Text("Publication Date: $publicationDate", fontSize = 12.sp)
-                GoodReadsRating(book.details.goodReadsRating)
+                Text("Publication Date: ${book.details.publicationDate}", fontSize = 12.sp)
+                GoodReadsRating(book.details.goodreadsRating)
             }
         }
     }
@@ -166,10 +167,6 @@ fun GoodReadsRating(
     }
 }
 
-data class SearchScreenState(
-    val books: List<Book>
-)
-
 @Preview(showBackground = true, heightDp = 340, widthDp = 320)
 @Composable
 fun SearchScreenPreview() {
@@ -182,9 +179,9 @@ fun SearchScreenPreview() {
             supplier = "supplier",
             details = BookDetails(
                 authors = listOf("author"),
-                goodReadsRating = GoodReadsRating(rating = 3.14, count = 3),
-                chapters = listOf("chapter1", "chapter2", "chapter3"),
-                publicationDate = Date()
+                goodreadsRating = GoodReadsRating(rating = 3.14, count = 3),
+                chapters = listOf(Chapter("Chapter 1")),
+                publicationDate = "2022-01-08"
             ),
             coverName = "cover-isla-del-tesoro",
             description = "description"
@@ -198,9 +195,9 @@ fun SearchScreenPreview() {
             supplier = "supplier",
             details = BookDetails(
                 authors = listOf("author"),
-                goodReadsRating = GoodReadsRating(rating = 3.14, count = 3),
-                chapters = listOf("chapter1", "chapter2", "chapter3"),
-                publicationDate = Date()
+                goodreadsRating = GoodReadsRating(rating = 3.14, count = 3),
+                chapters = listOf(Chapter("Chapter 1")),
+                publicationDate = "2022-01-08"
             ),
             coverName = "cover-isla-del-tesoro",
             description = "description"
